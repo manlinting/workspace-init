@@ -1,8 +1,3 @@
 #!/bin/sh 
+yum install -y telnet lszrz git cmake wget ncurses-devel python-devel
 
-yum install vim 
-yum install lszrz
-yum install git
-yum install cmake
-yum install wget
-git clone https://github.com/gmarik/vundle.git  ~/.vim/bundle/vundle
