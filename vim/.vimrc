@@ -7,8 +7,6 @@ let g:miniBufExplUseSingleClick=1
 
 """"""""""""ctags settings"""""""""""""""""
 "注意=后不可有空格"
-"set tags+=~/.vim/cpptags
-"set tags+=~/.vim/systags
 set tags+=/home/lincolnlin/.vim/tag/mmbiz
 set tags+=/home/lincolnlin/.vim/tag/stl
 set tags+=~/QQMail/mm3rd/boost/tags
@@ -16,9 +14,10 @@ set tags+=~/QQMail/mm3rd/boost/tags
 """"""""""color scheme""""""""""""""""""""
 let g:rehash256 = 1
 set t_Co=256
-set background=dark
-colorscheme solarized
-"colorscheme molokai 
+"set background=dark
+"colorscheme desert
+"colorscheme solarized
+colorscheme molokai 
 "colorscheme koehler
 "colorscheme darkburn
 "colorscheme tir_black
@@ -27,7 +26,6 @@ colorscheme solarized
 
 """"""""""""vundle"""""""""""""""""""""""""
 set nocompatible
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -36,48 +34,49 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 """"""""vim scripts""""""""""""""""""
-Bundle 'taglist.vim'
-Bundle 'majutsushi/tagbar'
 Bundle 'c.vim'
 "Bundle 'minibufexpl.vim'
 Bundle 'grep.vim'
 Bundle 'mru.vim'
 Bundle 'comments.vim'
-Bundle 'vim-scripts/STL-Syntax'
+Bundle 'STL-Syntax'
+Bundle 'AutoClose'
+Bundle 'a.vim'
+Bundle "TaskList.vim"
+Bundle "vim-easy-align"
+Bundle "cppSyntaxCheck"
+
+"if no YouCompleteMe
+"Bundle 'neocomplcache'
+"Bundle 'OmniCppComplete'
 
 """"""""git repo"""""""""""""""
+Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'vim-scripts/AutoClose'
 Bundle 'scrooloose/syntastic'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
-Bundle 'flazz/vim-colorschemes'
 "Bundle 'SirVer/ultisnips' 
 "Bundle 'honza/vim-snippets'
 Bundle 'kevinw/pyflakes-vim'
-Bundle 'vim-scripts/a.vim'
 Bundle 'fencview.vim'
-Bundle 'vim-scripts/OmniCppComplete'
-Bundle 'neocomplcache'
 
-Bundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-Bundle "vimproc.vim"
-Bundle "vimshell.vim"
-Bundle "TaskList.vim"
+Bundle "Shougo/vimproc.vim"
+Bundle "Shougo/vimshell.vim"
 Bundle "rainbow_parentheses.vim"
-Bundle "vim-powerline"
-Bundle "indentLine"
-"Bundle "vim-colors-solarized"
+Bundle "Yggdroot/indentLine"
+Bundle "altercation/vim-colors-solarized"
 "Bundle 'Lokaltog/vim-easymotion'
 Bundle "mbbill/undotree"
-"Bundle "vim-surround"
-Bundle "ctrlp.vim"
-Bundle "vim-easy-align"
-Bundle "vim-autoformat"
-Bundle "Color-Scheme-Explorer"
-Bundle "cppSyntaxCheck"
+Bundle "kien/ctrlp.vim"
+Bundle "Chiel92/vim-autoformat"
+
+
+""""""""full path"""""""""""""""
+Bundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+Bundle 'Valloric/YouCompleteMe'
+
+Plugin 'flazz/vim-colorschemes'
 
 """"""""""syntastic""""""""""""
 let g:syntastic_check_on_open = 1
@@ -125,7 +124,6 @@ let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1"
 
 filetype plugin indent on     " required!"
-
 syntax on
 
 "-----------------------
@@ -332,21 +330,21 @@ function! ReBuildCtags()
     echohl WarningMsg | echo "ReBuild Ctags Done!" | echohl None
 endfunction
 
-" run shell 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au filetype sh map <F10> :call RunShell()<CR>
-au filetype sh imap <F10> :call RunSehll()<CR>
-au filetype python map <F10> :call RunShell()<CR>
-au filetype python imap <F10> :call RunSehll()<CR>
+
+"=>"Shell 增强
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+autocmd FileType sh map <F10> :call RunShell()<CR>
+autocmd FileType sh imap <F10> :call RunShell()<CR>
+autocmd FileType python map <F10> :call RunShell()<CR>
+autocmd FileType python imap <F10> :call RunShell()<CR>
+autocmd BufNewFile *.cc,*.sh exec ":call SetTitle()"
+autocmd BufNewFile *.py exec ":call SetTitlePy()"
+
+"脚本自动跑
 function! RunShell()
     exec ":w"
     exec "!./%"
 endfunction
-
-"=>"Shell 增强
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-autocmd BufNewFile *.cc,*.sh exec ":call SetTitle()"
-autocmd BufNewFile *.py exec ":call SetTitlePy()"
 
 "定义函数SetTitle，自动插入文件头
 func SetTitle()
