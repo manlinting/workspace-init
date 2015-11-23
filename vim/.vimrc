@@ -14,7 +14,7 @@ set tags+=~/QQMail/mm3rd/boost/tags
 """"""""""color scheme""""""""""""""""""""
 let g:rehash256 = 1
 set t_Co=256
-"set background=dark
+set background=dark
 "colorscheme desert
 "colorscheme solarized
 colorscheme molokai 
@@ -47,8 +47,8 @@ Bundle "vim-easy-align"
 Bundle "cppSyntaxCheck"
 
 "if no YouCompleteMe
-"Bundle 'neocomplcache'
-"Bundle 'OmniCppComplete'
+Bundle 'neocomplcache'
+Bundle 'OmniCppComplete'
 
 """"""""git repo"""""""""""""""
 Bundle 'majutsushi/tagbar'
@@ -70,11 +70,12 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "mbbill/undotree"
 Bundle "kien/ctrlp.vim"
 Bundle "Chiel92/vim-autoformat"
+Bundle "FuDesign2008/randomColor.vim"
 
 
 """"""""full path"""""""""""""""
 Bundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 
 Plugin 'flazz/vim-colorschemes'
 
@@ -444,4 +445,13 @@ set laststatus=2
 "
 "===============AutoForMat========================""
 "au BufWrite * :Autoformat
+
+
+"RandColor
+let g:favorite_color_schemes = ['molokai', 'tir_black','jellybeans','peaksea','pyte', 'summerfruit','lucius',]
+"0 - Do not use
+"1 - Use, default value
+"2 - Use, but only when vim is running in the GUI
+"3 - Use, but only when vim is NOT runing in the GUI
+let g:random_color_start = 3
 
