@@ -9,7 +9,7 @@
 set -e 
 
 yum groupinstall -y "Development tools"
-yum install -y python-devel zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
+yum install -y python-devel zlib-devel bzip2-devel ncurses-devel readline-devel
 
 wget http://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz 
 tar -xzvf Python-2.7.12.tgz
@@ -31,10 +31,11 @@ ldconfig
 #修改yum脚本
 sed  -i '1s/python/python2.6/' /usr/bin/yum
 
+#安装pip
 wget https://bootstrap.pypa.io/get-pip.py
 
 #安装其它软件 
-pip install ptipython
+pip install ipython  ptipython
 
 ln -s /usr/local/python27/bin/ptipython /usr/bin/
 
