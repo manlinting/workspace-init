@@ -7,4 +7,4 @@
 #########################################################################
 
 
-yum install -y lrzsz file
+yum install -y lrzsz file nc
