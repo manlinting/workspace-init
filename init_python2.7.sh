@@ -21,7 +21,7 @@ make install
 #修改系统python版本
 mv /usr/bin/python /usr/bin/python2.6 #备份2.6
 ln -s /usr/local/python27/bin/python /usr/bin/python
-lns -s /usr/bin/python /usr/bin/python2.7
+ln -s /usr/bin/python /usr/bin/python2.7
 
 #加上python库路径
 echo "/usr/local/python27/lib/" > /etc/ld.so.conf.d/python.conf
@@ -36,6 +36,7 @@ wget https://bootstrap.pypa.io/get-pip.py
 
 #安装其它软件 
 pip install ipython  ptipython
+pip install matppltlib
 
 ln -s /usr/local/python27/bin/ptipython /usr/bin/
 
