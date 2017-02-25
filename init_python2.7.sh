@@ -37,6 +37,8 @@ wget https://bootstrap.pypa.io/get-pip.py
 #安装其它软件 
 pip install ipython  ptipython
 pip install matppltlib
+pip install scipy 
+pip install numpy 
 
 ln -s /usr/local/python27/bin/ptipython /usr/bin/
 
