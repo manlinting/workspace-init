@@ -10,6 +10,10 @@ set -e
 
 yum groupinstall -y "Development tools"
 yum install -y python-devel zlib-devel bzip2-devel ncurses-devel readline-devel
+
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+
 pip install setuptools==33.1.1
 
 pip install ipython  ptipython
