@@ -2,4 +2,7 @@
 
 pip install shadowsocks
 
-ssserver -p 443 -k 504504 -m aes-256-cfb --user nobody -d start
+nohup ssserver -c /etc/shadowsocks.json 2>&1 > /var/log/ss.log &
+
+iptables -I INPUT -p tcp  --dport 8080  -j  ACCEPT
+iptables -I INPUT -p udp  --dport 8080  -j  ACCEPT

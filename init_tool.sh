@@ -8,3 +8,4 @@
 
 
 yum install -y lrzsz file nc
+yum insall net-tools
